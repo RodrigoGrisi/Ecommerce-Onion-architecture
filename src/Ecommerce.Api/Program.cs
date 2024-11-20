@@ -1,9 +1,21 @@
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Add services to the container.build
+
+using Ecommerce.Infrastructure.CrossCutting.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+builder.Services.Configure<RavenDbSettings>(builder.Configuration.GetSection(nameof(RavenDbSettings)));
+
+builder.Services.AddRavenDb();
+builder.Services.AddDomainServices();
+builder.Services.AddRepositories();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddMappers();
+builder.Services.AddAplicationService();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

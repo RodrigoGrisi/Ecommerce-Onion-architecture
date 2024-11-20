@@ -1,6 +1,6 @@
-﻿namespace Ecommerce.Domain.Model;
+﻿namespace Ecommerce.Application.Dtos;
 
-public class Address
+public class AddressDto
 {
     public string? Street { get; set; }
     public int AddressNumber { get; set; }
@@ -9,9 +9,4 @@ public class Address
     public string? State { get; set; }
     public string? PhoneNumber { get; set; }
     public string? PostalCode { get; set; }
-
-
-    public bool isActive { get; set; }
-    public DateTime? Created { get; set; }
-
 }
